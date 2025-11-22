@@ -1,44 +1,61 @@
 /* تنظیمات پایه */
 body {
-    font-family: Tahoma, sans-serif; /* فونت ساده و خوانا */
-    background-color: #f0f0f0; /* پس زمینه روشن برای تمرکز */
+    font-family: Tahoma, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* تمام ارتفاع صفحه را پوشش دهد */
+    min-height: 100vh;
     color: #333;
-    /* می توانید یک تصویر پس زمینه شبیه عکس اصلی اینجا اضافه کنید */
+    
+    /* پس‌زمینه مورد نیاز برای نمایش افکت شیشه‌ای */
     background-image: url('your-background-image.jpg'); 
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; /* ثابت کردن پس زمینه در صورت اسکرول */
 }
 
-/* کانتینر اصلی صفحه */
+/* کانتینر اصلی صفحه - اعمال افکت شیشه‌ای */
 .container {
     width: 90%;
-    max-width: 400px; /* حداکثر عرض برای موبایل */
+    max-width: 400px; 
     text-align: center;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9); /* پس زمینه کمی شفاف برای نمایش تصویر زیرین */
+    
+    /* 1. تنظیم شفافیت پس‌زمینه برای دیدن محتوای پشت */
+    background-color: rgba(255, 255, 255, 0.2); 
+    
+    /* 2. اعمال افکت تاری (Blur) - کلید افکت شیشه‌ای */
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); /* برای سازگاری با مرورگرهای وب‌کیت (Safari) */
+    
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    
+    /* 3. خط حاشیه شیشه‌ای (اختیاری) */
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* بخش پروفایل */
+/* بخش پروفایل - تنظیم برای شیشه‌ای شدن یا کنتراست بهتر */
 .profile-section {
     margin-bottom: 30px;
-    color: #fff; /* متن سفید روی پس زمینه تیره‌تر */
-    background-color: rgba(0, 0, 0, 0.4); /* پس زمینه تیره و شفاف برای پروفایل */
+    color: #fff; 
+    
+    /* یک پس‌زمینه کمی تیره‌تر و شفاف برای کنتراست بهتر */
+    background-color: rgba(0, 0, 0, 0.3); 
+    
     padding: 20px 10px;
     border-radius: 10px;
+    
+    /* اختیاری: برای بخش پروفایل هم یک خط حاشیه شیشه‌ای اعمال کنید */
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .profile-img {
     width: 120px;
     height: 120px;
-    border-radius: 50%; /* دایره ای شدن تصویر */
+    border-radius: 50%; 
     object-fit: cover;
     border: 4px solid #fff;
     margin-bottom: 10px;
@@ -52,18 +69,18 @@ h1 {
 .subtitle {
     margin: 0;
     font-size: 0.9em;
-    opacity: 0.8;
+    opacity: 0.9; /* کمی وضوح بیشتر برای متن */
 }
 
 /* بخش دکمه ها */
 .links-section {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* فاصله بین دکمه ها */
+    gap: 15px;
 }
 
 .link-btn {
-    display: flex; /* برای قرارگیری آیکون و متن در یک خط */
+    display: flex;
     align-items: center;
     justify-content: center;
     padding: 15px 20px;
@@ -74,6 +91,7 @@ h1 {
     color: #fff;
     font-size: 1.1em;
     border: none;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* سایه کوچک برای برجسته سازی دکمه ها */
 }
 
 /* آیکون ها */
@@ -84,34 +102,39 @@ h1 {
 
 /* رنگ بندی دکمه ها شبیه عکس */
 .telegram-btn {
-    background-color: #0088cc; /* آبی تلگرام */
+    background-color: #0088cc;
 }
 
 .phone-btn {
-    background-color: #92a291; /* خاکستری زیتونی */
+    background-color: #92a291;
 }
 
 .email-btn {
-    background-color: #1e3a52; /* سرمه ای تیره */
+    background-color: #1e3a52;
 }
 
 .website-btn {
-    background-color: #e4405f; /* برای مثال رنگ اینستاگرام */
+    background-color: #e4405f;
 }
 
 /* جلوه Hover */
 .link-btn:hover {
-    opacity: 0.85;
+    opacity: 0.9;
     transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* پاور بای */
 .powered-by {
     margin-top: 25px;
     padding: 10px 20px;
-    background-color: #f0f0f0;
-    color: #777;
+    /* این بخش را هم شیشه‌ای می‌کنیم */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    
+    color: #fff; /* رنگ متن سفید برای بهتر دیده شدن */
     font-size: 0.8em;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
