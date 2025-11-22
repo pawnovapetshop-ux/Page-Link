@@ -1,6 +1,21 @@
 /* تنظیمات پایه */
+/* --- تعریف فونت Vazirmatn (متغیر) --- */
+@font-face {
+    font-family: 'Vazirmatn';
+    /* آدرس دهی باید نام فایل دقیق را شامل شود */
+    src: url('fonts/Vazirmatn-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900; /* برای فونت های متغیر، محدوده وزن را تعریف می کنیم */
+    font-style: normal;
+}
+
+/* --- اعمال فونت در تگ body --- */
+
 body {
-    font-family: Tahoma, sans-serif;
+    /* **خط font-family را به شکل زیر تغییر دهید** */
+    font-family: 'Vazirmatn', Tahoma, sans-serif; 
+    
+    background-image: url('your-background-image.jpg'); 
+    /* ... سایر کدهای body ... */
     margin: 0;
     padding: 0;
     display: flex;
@@ -8,12 +23,9 @@ body {
     align-items: center;
     min-height: 100vh;
     color: #333;
-    
-    /* پس‌زمینه مورد نیاز برای نمایش افکت شیشه‌ای */
-    background-image: url('your-background-image.jpg'); 
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* ثابت کردن پس زمینه در صورت اسکرول */
+    background-attachment: fixed;
 }
 
 /* کانتینر اصلی صفحه - اعمال افکت شیشه‌ای */
@@ -23,33 +35,24 @@ body {
     text-align: center;
     padding: 20px;
     
-    /* 1. تنظیم شفافیت پس‌زمینه برای دیدن محتوای پشت */
+    /* افکت شیشه‌ای (Glassmorphism) */
     background-color: rgba(255, 255, 255, 0.2); 
-    
-    /* 2. اعمال افکت تاری (Blur) - کلید افکت شیشه‌ای */
     backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px); /* برای سازگاری با مرورگرهای وب‌کیت (Safari) */
+    -webkit-backdrop-filter: blur(10px); 
     
     border-radius: 15px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    
-    /* 3. خط حاشیه شیشه‌ای (اختیاری) */
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* بخش پروفایل - تنظیم برای شیشه‌ای شدن یا کنتراست بهتر */
+/* بخش پروفایل */
 .profile-section {
     margin-bottom: 30px;
     color: #fff; 
-    
-    /* یک پس‌زمینه کمی تیره‌تر و شفاف برای کنتراست بهتر */
-    background-color: rgba(0, 0, 0, 0.3); 
-    
+    background-color: rgba(73, 73, 73, 0.3); 
     padding: 20px 10px;
     border-radius: 10px;
-    
-    /* اختیاری: برای بخش پروفایل هم یک خط حاشیه شیشه‌ای اعمال کنید */
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(101, 95, 95, 0.2);
 }
 
 .profile-img {
@@ -57,9 +60,26 @@ body {
     height: 120px;
     border-radius: 50%; 
     object-fit: cover;
-    border: 4px solid #fff;
+;
     margin-bottom: 10px;
 }
+
+.main-logo-svg {
+    max-width: 300px; /* مقدار را افزایش دادیم */
+    height: auto; 
+    margin: 10px auto 5px auto; 
+    display: block; 
+    border: #333;
+    padding: 1cm;
+}
+
+
+h1 { /* این استایل دیگر برای لوگو استفاده نمی‌شود اما می‌تواند برای چیزهای دیگر بماند */
+    margin: 5px 0;
+    font-size: 1.8em;
+}
+
+
 
 h1 {
     margin: 5px 0;
@@ -69,7 +89,7 @@ h1 {
 .subtitle {
     margin: 0;
     font-size: 0.9em;
-    opacity: 0.9; /* کمی وضوح بیشتر برای متن */
+    opacity: 0.9; 
 }
 
 /* بخش دکمه ها */
@@ -91,7 +111,7 @@ h1 {
     color: #fff;
     font-size: 1.1em;
     border: none;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* سایه کوچک برای برجسته سازی دکمه ها */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* آیکون ها */
@@ -100,11 +120,13 @@ h1 {
     font-size: 1.2em;
 }
 
-/* رنگ بندی دکمه ها شبیه عکس */
+/* رنگ بندی دکمه های فعال */
 .telegram-btn {
     background-color: #0088cc;
 }
-
+.instagram-btn{
+    background-color: #c749bd;
+}
 .phone-btn {
     background-color: #92a291;
 }
@@ -113,12 +135,16 @@ h1 {
     background-color: #1e3a52;
 }
 
+/* رنگ وب‌سایت (برای زمانی که فعال شود) */
 .website-btn {
-    background-color: #e4405f;
+    background-color: #4a90e2; 
 }
 
-/* جلوه Hover */
-.link-btn:hover {
+/* **استایل دکمه‌های غیرفعال** */
+
+
+/* جلوه Hover برای دکمه‌های فعال */
+.link-btn:not(.disabled-btn):hover {
     opacity: 0.9;
     transform: translateY(-2px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -128,13 +154,63 @@ h1 {
 .powered-by {
     margin-top: 25px;
     padding: 10px 20px;
-    /* این بخش را هم شیشه‌ای می‌کنیم */
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    
-    color: #fff; /* رنگ متن سفید برای بهتر دیده شدن */
+    color: #fff; 
     font-size: 0.8em;
-    border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+
+/* --- استایل های مودال/دیالوگ --- */
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(5px); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 25px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: right;
+    direction: rtl; 
+}
+
+.close-btn {
+    color: #aaa;
+    float: left; 
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* استایل‌های متن پاپ‌آپ */
+.modal-body h2 {
+    color: #cc0000;
+    margin-top: 5px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.modal-body p {
+    color: #555;
+    line-height: 1.5;
 }
